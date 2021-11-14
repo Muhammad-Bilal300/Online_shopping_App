@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:online_shopping_app/models/products.dart';
+import 'package:online_shopping_app/screens/details_page/components/body.dart';
+
+import '../../constants.dart';
 
 class DetailsScreen extends StatefulWidget {
   final Product product;
@@ -15,11 +18,38 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.product.color,
-      body: Container(
-        height: 200,
-        width: 200,
-        child: Image.asset(widget.product.image),
+      appBar: buildAppBar(),
+      body: Body(product: widget.product),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: widget.product.color,
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back,
+          color: kTextColor,
+        ),
+        onPressed: () {},
       ),
+      actions: [
+        IconButton(
+          icon: Icon(
+            Icons.search,
+            color: kTextColor,
+          ),
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.shopping_basket,
+            color: kTextColor,
+          ),
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }
